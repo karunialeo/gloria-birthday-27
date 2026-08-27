@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy 27th Birthday, Gloria! ❤️</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Playfair+Display:ital,wght@0,500;1,500&family=Inter:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/png" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              softpink: "#fdf2f8",
+              blush: "#fbcfe8",
+              maturepink: "#be185d", // Rose 700
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+              handwriting: ["Caveat", "cursive"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body
+    class="bg-softpink text-gray-800 antialiased overflow-x-hidden min-h-screen"
+  >
+    <!-- BGM (Siapkan file mp3 lu di folder yang sama) -->
+    <audio id="bg-music" loop>
+      <source src="assets/background-music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- HERO SECTION (Tampil pertama) -->
+    <section
+      id="hero"
+      class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-softpink transition-opacity duration-1000"
+    >
+      <div class="text-center space-y-8 px-4">
+        <h1 class="font-serif text-4xl md:text-5xl text-maturepink italic">
+          For Gloria...
+        </h1>
+        <p class="text-sm md:text-base text-gray-500 tracking-widest uppercase">
+          I have a little something for you
+        </p>
+
+        <button
+          id="cta-btn"
+          class="mt-8 relative group inline-flex items-center justify-center px-8 py-3 font-bold text-white transition-all duration-300 bg-maturepink rounded-full shadow-lg shadow-pink-300 hover:bg-pink-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-maturepink animate-bounce"
+        >
+          <span
+            class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-black"
+          ></span>
+          <span class="relative">Open Your Surprise 🎁</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT (Awalnya hidden) -->
+    <main
+      id="main-content"
+      class="hidden opacity-0 transition-opacity duration-1000 pb-20 relative z-10"
+    >
+      <!-- Header -->
+      <header class="text-center pt-16 pb-8 px-4">
+        <h1 class="font-serif text-5xl md:text-6xl text-maturepink mb-4">
+          Happy 27th Birthday!
+        </h1>
+        <p class="font-handwriting text-3xl text-gray-600">Gloria ❤️</p>
+      </header>
+
+      <!-- Polaroid Gallery (Auto horizontal scroll) -->
+      <section class="mt-8 mb-16 relative">
+        <!-- Shadow edges for smooth fade effect -->
+        <div
+          class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-softpink to-transparent z-10"
+        ></div>
+        <div
+          class="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-softpink to-transparent z-10"
+        ></div>
+
+        <div class="marquee-container">
+          <div id="marquee-track" class="marquee-track items-center">
+            <!-- Images will be injected here via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Special Message (Typing Effect) -->
+      <section class="max-w-2xl mx-auto px-6 mt-12">
+        <div
+          class="bg-white/60 backdrop-blur-sm p-8 md:p-10 rounded-2xl shadow-xl shadow-pink-100/50 border border-white"
+        >
+          <div class="flex items-center justify-center mb-6">
+            <svg
+              class="w-8 h-8 text-maturepink"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              />
+            </svg>
+          </div>
+
+          <div
+            class="font-serif text-lg md:text-xl leading-relaxed text-gray-700"
+          >
+            <span id="typing-text"></span><span class="cursor"></span>
+          </div>
+
+          <div
+            id="signature"
+            class="mt-8 text-right font-handwriting text-3xl text-maturepink opacity-0 transition-opacity duration-1000"
+          >
+            - Leo ❤️
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
